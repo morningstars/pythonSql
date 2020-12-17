@@ -82,4 +82,5 @@ alter table interest change skill skill1 int; 修改字段名
 alter table interest rename interest_1; 重命名表
 
 
+
 """
