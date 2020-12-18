@@ -38,4 +38,28 @@ select * from sanguo where country in ("蜀国","魏国") and name like '___' or
 
 **在蜀国英雄中,查找攻击值前3名且名字不为 NULL 的英雄的姓名、攻击值和国家**
 select name,attack,country from sanguo where country="蜀国" and name is not null order by attack desc limit 3;
+
+
+
+eg1 : 计算每个国家的平均攻击力
+select country,avg(attack) from sanguo group by country;
+
+eg2 : 所有国家的男英雄中 英雄数量最多的前2名的 国家名称及英雄数量
+select country, count(id) from sanguo where gender="男" group by country order by count(id) desc limit 2;
+
+eg3 : 找出平均攻击力大于105的国家的前2名,显示国家名称和平均攻击力
+select country,avg(attack) from sanguo group by country having avg(attack) > 105 order by avg(attack) desc limit 2;
+
+eg4 : 表中都有哪些国家
+select distinct country from sanguo;
+
+eg5 : 计算一共有多少个国家
+select count(distinct country) from sanguo;
+
+eg6: 查询时显示攻击力翻倍
+select attack * 2 from sanguo;
+
+eg7: 更新蜀国所有英雄攻击力 * 2
+update sanguo set attack = attack*2 where country= "蜀国";
+
 """
