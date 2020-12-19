@@ -83,6 +83,12 @@ if __name__ == '__main__':
 
     insert2()
     # data.delete()
+
+
+
+
 """
+
+select user_id, count(user_id) cu from comment c group by user_id order by cu desc limit 10;
 
 """
